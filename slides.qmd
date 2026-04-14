@@ -38,13 +38,13 @@ showtext_auto()
 
 ## What is this?
 
-We were invited to write a on **Cross-Lagged Panel Models** (CLPM) for the *Journal of Developmental and Life Course Criminology*^[I'll be using social-ecological examples today though]
+We were invited to write an article on **Cross-Lagged Panel Models** (CLPM) for the *Journal of Developmental and Life Course Criminology*
 
 &nbsp;
 
 . . .
 
-CLPMs are commonly used to examine **reciprocality** in *developmental* and *life course* research
+CLPMs are commonly used to examine **reciprocality** in *developmental* and *life course* research in Criminology, Psychology, and Sociology
 
 
 ## Reciprocality
@@ -88,7 +88,7 @@ We were invited to write a on **Cross-Lagged Panel Models** (CLPM) for the *Jour
 
 &nbsp;
 
-CLPMs are commonly used to examine **reciprocality** in *developmental* and *life course* research
+CLPMs are commonly used to examine **reciprocality** in *developmental* and *life course* research in Criminology, Psychology, and Sociology
 
 &nbsp;
 
@@ -106,7 +106,7 @@ We were invited to write a on **Cross-Lagged Panel Models** (CLPM) for the *Jour
 
 &nbsp;
 
-CLPMs are commonly used to examine **reciprocality** in *developmental* and *life course* research
+CLPMs are commonly used to examine **reciprocality** in *developmental* and *life course* research in Criminology, Psychology, and Sociology
 
 &nbsp;
 
@@ -172,9 +172,23 @@ But first, what is a cross-lagged panel model?
 
 Provided repeated observations, cross-lags "enforce" temporal order
 
-Strength and direction inferred from cross-lagged path estimates
+Strength and direction often *inferred* from cross-lagged path estimates
 
-The *hammer* for panel data's *nail*
+It is Maslow's *Hammer* for panel data
+
+## An example: Disorder and fear
+
+&nbsp;
+
+&nbsp;
+
+![](img/brunton-smith.png)
+
+::: {.aside}
+
+Source: Brunton-Smith (2011) Untangling the relationship between fear of crime and perceptions of disorder
+
+:::
 
 ## Does this make sense with yearly panel data?
 
@@ -217,11 +231,17 @@ The *hammer* for panel data's *nail*
   }
 ```
 
+. . .
+
 &nbsp;
 
-When would we expect observing disorder to impact fear?
+When would we expect observing disorder to impact fear and vice versa?
 
-## Another common form
+. . .
+
+Does this align with the **theory** we're testing?
+
+## Contemporaneous effects
 
 &nbsp;
 
@@ -284,21 +304,29 @@ When would we expect observing disorder to impact fear?
 
 &nbsp;
 
-Can capture immediate effects... but assumes the problem away 
+Can capture immediate effects... but it assumes the problem away
 
-## Our message {.dark-slide}
+. . .
+
+Strong **theory** might justify this, however
+
+## Three key messages {.dark-slide}
 
 &nbsp;
 
 Good empirical research starts with a **strong theoretical foundation**
 
-&nbsp;
-
-Consider whether your data can answer your question
+. . .
 
 &nbsp;
 
-You should default to robust estimators
+Panel survey data are **not appropriate for answering every question**
+
+. . .
+
+&nbsp;
+
+You should default to **robust estimators**
 
 
 ## Our approach
@@ -308,6 +336,7 @@ You should default to robust estimators
 **The world is recursive**
 
 * Non-recursive *theory* is a symptom of ignoring **time** or **mechanisms**
+   * E.g., supply and demand is a micro-macro model
 * Use a *directed acyclic graphs* (DAG) for theories
 
 ::: {.fragment fragment-index=1}
@@ -316,7 +345,7 @@ You should default to robust estimators
 
 * *Estimators* must often handle ambiguity, and assumptions should be clear
 * Use classical *structural equation model* (SEM) path diagrams for estimators
-   * The structural model should be non-recursive[^1] and derived from the theoretical DAG
+   * The structural model should be recursive[^1] and derived from the theoretical DAG
 
 :::
 
@@ -386,6 +415,11 @@ You should default to robust estimators
   }
 ```
 
+&nbsp;
+
+* Units of time should be clearly stated
+* No bidirectional paths
+* Include latent or missing variables
 
 
 ## SEM for estimation
@@ -478,7 +512,7 @@ You should default to robust estimators
   }
 ```
 
-We can clearly encode ambiguities and assumptions
+Encode ambiguities and assumptions, e.g., (in)dependence
 
 
 
@@ -502,16 +536,22 @@ Clear theory is a prerequisite before specifying an estimator:
    * Covariances to address ambiguity and relax assumptions
 
 
+# Theory, estimands, and time
+
+
 ## When is a CLPM needed
 
 > A cross-lagged panel model is only needed when reciprocal effects over time are presumed in the theoretical model. When the researcher can theoretically assume no effects of the dependent variable on the independent variable over time, other statistical models will be more appropriate than a cross-lagged panel model 
 
 . . .
 
-Two forms of reciprocality:
+
+We distinguish between two forms of reciprocality:
 
 * **Theoretical reciprocality** (substance)
+   * *We care about both paths; e.g., which is stronger?*
 * **Reverse causality** (nuisance)
+   * *We care about one path but the other may bias our estimate*
 
 ## Two forms
 
@@ -551,9 +591,71 @@ Two forms of reciprocality:
 ```
 
 
-# Panel data
+## Start with theory
 
-## It comes in waves
+> CLPMs are frequently used without careful attention to the theoretical process they are meant to capture... [which] should inform... the definition of the causal quantity of interest---the **estimand**, which is often left implicit, determined not by theory but by the structure of the available data. When the starting point is not a clearly specified causal process, one risks arriving at an estimator that produces a **correct answer** to the **wrong question**.
+
+&nbsp;
+
+E.g., "the effect of last year's informal social control on this year's crime"
+
+## The one true causal timing
+
+&nbsp;
+
+Estimands connect your theoretical question to your data by specifying:
+
+* Value of exposure
+  * E.g., a counterfactual difference
+* **Timing of effect**
+
+. . .
+
+&nbsp;
+
+> what is important is recognizing that there is no “true causal timing” waiting to be discovered because causal timing is a choice a researcher makes when defining their estimand of interest.
+
+
+## Drinking problems {.r-fit-text}
+
+&nbsp;
+
+> what is the true causal timing of drinking an additional pint of beer
+on one’s perceived wellbeing? What is this effect at 20 seconds, 20 minutes, 20 hours, or 20 years? What about the effect of an additional pint per day after 10 years? In this context, the reader may know intimately which exposure and which lags between measurement of exposure and outcome correspond to detectable and substantively interesting causal effects. Strong theories should be specific about the role of time and thus able to inform what sort of causal timings—whether delay between exposure and outcome or aggregations of exposures—are of substantive interest. 
+
+## An example
+
+&nbsp;
+
+Theories^[E.g., Sampson & Laub 1993; Hirschi 1969; St. Jerome 411] posit that *employment* reduces *offending*---with obvious reverse causality as offending threatens job loss---and we have *yearly* data
+
+. . .
+
+* If we think employment reduces offending by keeping people involved in day-to-day activities... [*we probably want daily or weekly data instead!*]{.fragment}
+
+. . .
+
+* But if we think employment reduces offending by gradually committing people to conventional life... [*our yearly data might be useful!*]{.fragment}
+
+. . .
+
+A feasible estimand: *The expected reduction in number of self-reported offenses in the present year per additional month of full-time work in the past year*
+
+## Good, an answerable question! {.dark-slide}
+
+&nbsp;
+
+&nbsp;
+
+::: {.center}
+
+*Now let's see how everything can go terribly wrong*
+
+:::
+
+# Panel data and composite variables
+
+## It comes and goes in waves
 
 &nbsp;
 
@@ -608,16 +710,105 @@ Two forms of reciprocality:
 
 Observations rarely correspond perfectly to a theoretical timing of interest
 
-Time is continuous anyway; missing data are *infinite*
+Time is continuous anyway; missing data are *infinite*^[Discrete data work in continuous time differential equations though]
+
+## Composite period variables
+
+Many common measures in panel studies are composites:
+
+* Time spent (un)employed
+* Number of crimes committed
+
+. . .
+
+> When our observation periods do not correspond to the timing of our underlying theoretical causal model, these period measures become what we will call **composite period variables**. They are a composite because the measured value is a deterministic sum of values that would be obtained by dividing the observation period up into smaller intervals and aggregating across them.
+
+. . .
+
+:::{.center}
+*Composite variable are **tricky***
+:::
 
 ## Composite variables
 
 ![](img/berrie_2025.jpg)
 
-Key problems:
+* Can be usefully represented in DAGs
+* Raise ~~horrible~~ unique causal identification issues
 
-* Consistency violations (multiple treatments at each level)
-* Time-varying confounding (components have different causes)
+
+## Composite $X \rightarrow Y$
+
+```{tikz, fig.ext = "svg", cache = TRUE, engine.opts=list(dvisvgm.opts= "--no-fonts")}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\definecolor{black}{HTML}{000000}
+\tikzset{
+    > = stealth,
+    every node/.append style = {
+        draw = none
+    },
+    every edge/.append style = {
+        arrows = ->,
+        fill = none
+    },
+    hidden/.style = {
+        draw = black,
+        shape = circle,
+        inner sep = 1pt
+    }
+}
+\tikz{
+    \node (x1) at (1, 1) {$X$};
+    \node (z1) at (2.5,1) {$Z$};
+    \node (y1) at (4,1) {$Y$};
+    
+    
+    \node[hidden] (x1a) at (0,2) {$X_{A}$};
+    \node[hidden] (x1b) at (0,0) {$X_{B}$};
+    % latent -> obs
+       % X->X%
+    \draw[->, double] (x1a) to (x1);
+    \draw[->, double] (x1b) to (x1);
+ 
+    % Y->Y%
+     \path (x1) edge [dashed, bend left=60, arrows = ->] (y1);
+     \path (x1a) edge (y1);
+     \path (x1b) edge (y1);
+     \path (z1) edge (x1a);
+     \path (z1) edge (x1b);
+     \path (z1) edge (y1);
+  }
+```
+
+
+$X_A \Rightarrow X$ indicates deterministic child-parent relationship
+
+## Violated assumptions
+
+&nbsp;
+
+**Ignorability** / **Exchangeability:** Treatment status is (conditionally) independent of potential outcomes
+
+::: {.fragment .center}
+
+&nbsp;
+
+*$X_A$ and $X_B$ may have different causes!*
+
+:::
+
+&nbsp;
+
+**Consistency:** No hidden *versions* of treatment
+
+::: {.fragment .center}
+
+&nbsp;
+
+*One value of $X$ can correspond to many permutations of $X_A$ and $X_B$!*
+
+:::
 
 ## Oh no
 
@@ -643,13 +834,12 @@ Key problems:
     }
 }
 \tikz{
+    \node (x1) at (1, 1) {$X$};
+    \node (z1) at (2.5,1) {$Z$};
+    \node (y1) at (4,1) {$Y$};
     
-    \node (y1) at (2.5,0.5) {$Y$};
-
     
-    \node (x1) at (1, 0.5) {$X$};
-    
-    \node[hidden] (x1a) at (0,1) {$X_{A}$};
+    \node[hidden] (x1a) at (0,2) {$X_{A}$};
     \node[hidden] (x1b) at (0,0) {$X_{B}$};
     % latent -> obs
        % X->X%
@@ -660,21 +850,14 @@ Key problems:
      \path (x1) edge [dashed, bend left=60, arrows = ->] (y1);
      \path (x1a) edge (y1);
      \path (y1) edge (x1b);
+     \path (x1a) edge (z1);
+     \path (z1) edge (x1b);
+     \path (z1) edge (y1);
   }
 ```
 
 Even worse when components aren't simultaneously determined
 
-## Composite period variables
-
-Many common measures in panel studies are composites:
-
-* Time spent (un)employed
-* Number of crimes committed
-
-. . .
-
-> When our observation periods do not correspond to the timing of our underlying theoretical causal model, these period measures become what we will call **composite period variables**. They are a composite because the measured value is a deterministic sum of values that would be obtained by dividing the observation period up into smaller intervals and aggregating across them.
 
 ## Oh noes
 
@@ -784,76 +967,51 @@ Many common measures in panel studies are composites:
 ```
 
 
-# Theory, estimands, and time
-
-## Start with theory
-
-> CLPMs are frequently used without careful attention to the theoretical process they are meant to capture... 
-
-> the definition of the causal quantity of interest---the **estimand**---is often left implicit, determined not by theory but by the structure of the available data. 
-
-"the effect of last year's informal social control on this year's crime"
-
-> When the starting point is not a clearly specified causal process, one risks arriving at an estimator that produces a **correct answer** to the **wrong question**.
-
-## The one true causal timing
+## I offer no solution {.dark-slide}
 
 &nbsp;
 
-Estimands connect your theoretical question to your data by specifying:
-
-* Value of exposure
-  * E.g., a counterfactual difference
-* **Timing of effect**
+&nbsp;
 
 &nbsp;
 
-> what is important is recognizing that there is no “true causal timing” waiting to be discovered because causal timing is a choice a researcher makes when defining their estimand of interest. (p.4)
-
-
-## Drinking problems {.r-fit-text}
-
-&nbsp;
-
-> what is the true causal timing of drinking an additional pint of beer
-on one’s perceived wellbeing? What is this effect at 20 seconds, 20 minutes, 20 hours, or 20 years? What about the effect of an additional pint per day after 10 years? In this context, the reader may know intimately which exposure and which lags between measurement of exposure and outcome correspond to detectable and substantively interesting causal effects. Strong theories should be specific about the role of time and thus able to inform what sort of causal timings—whether delay between exposure and outcome or aggregations of exposures—are of substantive interest. 
-
-## An example
-
-&nbsp;
-
-Theories^[E.g., Sampson & Laub 1993; Hirschi 1969; St. Jerome 411] *employment* reduces *offending*---with obvious reverse causality as offending threatens job loss---and we have *yearly* data
+::: {.center}
+*I just want it to haunt your dreams*
+:::
 
 . . .
 
-* If we think employment reduces offending by keeping people involved in day-to-day activities... [*we probably want daily or weekly data instead!*]{.fragment}
-
-. . .
-
-* But if we think employment reduces offending by gradually committing people to conventional life... [*our yearly data might be useful!*]{.fragment}
-
-. . .
-
-A feasible estimand: *The expected reduction in number of self-reported offenses in the present year per additional week of work in the past year*
-
-## Good, an answerable question! {.dark-slide}
-
 &nbsp;
 
-Now we can move on to estimation
-
+::: {.center}
+*But you should consider how it might impact your research design*
+:::
 
 # Three common applied problems
 
-## Unobserved stable heterogeneity
+
+## Unobserved time-stable heterogeneity {.dark-slide}
+
+## Unobserved time-stable heterogeneity
+
+While we may be interested in change over time *within individuals*, theory often leads us to expect relatively stable differences *between individuals*
+
+Sometimes these are nuisances, other times they are substantively interesting
 
 &nbsp;
 
-* Autoregressive terms don't absorb time-stable confounding^[While the same problem, we usually talk about time-varying confounders differently than time stable ones]
-* Cross-lagged terms mix within-unit change with between-unit differences
-* Can't just toss in fixed effects due to Nickell bias from endogenous lag
-   * Bias shrinks in proportion to T
-* Generally well-recognized
+. . .
+
+Unfortunately:
+
+::: {.incremental}
+
+* Autoregressive terms cannot fully capture time-stable confounding
+* Cross-lagged terms conflate within-unit change with between-unit differences
+* Can't just toss in fixed effects due to **Nickell bias** from endogenous lag
+   * Bias shrinks in proportion to $T$, but most panel surveys are small $T$
+
+:::
 
 ## Work, crime, and self-control
 
@@ -1004,7 +1162,7 @@ Confounded by a time-stable trait of individuals
   }
 ```
 
-One-sided latent Mundlak estimator better for reverse causality
+One-sided Mundlak estimator for *reverse causality* and *nuisance heterogeneity*
 
 ## Solution 2: Hamaker et al.'s (2015) RI-CLPM
 
@@ -1044,8 +1202,8 @@ One-sided latent Mundlak estimator better for reverse causality
     \node (x2) at (2,1) {$X_2$};
     \node (x3) at (4,1) {$X_3$};
     
-    \node [hidden] (by1) at (-3,4.5) {$\alpha_Y$};
-    \node [hidden] (bx1) at (-3,1.5) {$\alpha_X$};
+    \node [hidden] (by1) at (-2,4.5) {$\alpha_Y$};
+    \node [hidden] (bx1) at (-2,1.5) {$\alpha_X$};
     
     \path (wx1) edge[gray, thin] (x1);
     \path (wx2) edge[gray, thin] (x2);
@@ -1082,61 +1240,32 @@ One-sided latent Mundlak estimator better for reverse causality
   }
 ```
 
-Better for theoretical reciprocality and explicitly partitioning effects
+Better for *theoretical reciprocality* and explicitly *separating effects*
+
+## Temporal misspecification {.dark-slide}
 
 ## Temporal misspecification
 
-&nbsp;
-
-As illustrated by Vaisey & Miles (2019), if...
+As illustrated by Vaisey & Miles (2017), if...
 
 
-* "True" contemporaneous model: $y = \beta x_t + \alpha_i + e_{it}$
-* Estimated lagged model: $y = \beta^* x_{t-1} + \alpha_i + e_{it}$
-* Resulting bias: $E(\beta^*) = -0.5\beta$
+* $y = \beta x_t + \alpha_i + e_{it}$ is the "true" contemporaneous model^[This applies with or without a lagged dependent variable]
+* $y = \beta^* x_{t-1} + \alpha_i + e_{it}$, the lagged model is estimated instead
+
+The resulting "bias" is: $E(\beta^*) = -0.5\beta$
 
 . . .
 
-Incorrect temporal order **can reverse signs**... which is bad:
+Incorrect temporal order **can reverse signs**... *which is bad*:
 
-* Confidently reject theories when true
-* Implies opposite effects
+* **False negatives:** Confidently reject theories when true
+* Implies *opposite* effects
 * Lag-only is most people's *default specification*
 
-## You'll see it everywhere now
 
-&nbsp;
+## Illustration
 
-![](img/wickes-hipp.png)
-
-&nbsp;
-
-::: {.center}
-*Be **very** suspicious of unexpected reversed signs*
-:::
-
-::: {.aside}
-
-Source: Lanfear et al. (2020)  Broken windows, informal social control, and crime: Assessing causality in empirical studies
-
-:::
-
-## Solutions
-
-:::: {.columns}
-
-::: {.column}
-
-* There is no true model, there is only a target estimand
-* Motivate estimand with theory
-* Use robust estimators, e.g., Allison's approach
-* If ambiguous contemporaneous path matters, you'll need strong instrument(s)
-
-:::
-
-::: {.column}
-
-```{tikz allison-2022, cache = TRUE, fig.ext = 'svg', engine.opts=list(dvisvgm.opts= "--no-fonts")}
+```{tikz, echo = FALSE, cache = TRUE, fig.ext = "svg", engine.opts=list(dvisvgm.opts= "--no-fonts") }
 \usetikzlibrary{positioning}
 \definecolor{black}{HTML}{000000}
 \tikzset{
@@ -1156,16 +1285,19 @@ Source: Lanfear et al. (2020)  Broken windows, informal social control, and crim
     }
 }
 \tikz{
-    \node (x1) at (0,2) {$X_1$};
-    \node (x2) at (2,2) {$X_2$};
-    \node (x3) at (4,2) {$X_3$};
-    \node (y1) at (0,0) {$Y_1$};
-    \node (y2) at (2,0) {$Y_2$};
-    \node (y3) at (4,0) {$Y_3$};
-    \node (ex2) at (2.5,3) {$e_{x2}$};
-    \node (ey2) at (2.5,-1) {$e_{y2}$};
-    \node (ex3) at (4.5,3) {$e_{x3}$};
-    \node (ey3) at (4.5,-1) {$e_{y3}$};
+    \node[align=center] (title1) at (2,3.5) {(a) Misspecified lag model};
+    \node (y1) at (0,2) {$Y_1$};
+    \node (y2) at (2,2) {$Y_2$};
+    \node (y3) at (4,2) {$Y_3$};
+    \node (x1) at (0,0) {$X_1$};
+    \node (x2) at (2,0) {$X_2$};
+    \node (x3) at (4,0) {$X_3$};
+    
+    \node[hidden] (ey2) at (2.5,3) {$\epsilon_{2}$};
+    \node[hidden] (ex2) at (2.5,-1) {$\zeta_{2}$};
+    \node[hidden] (ey3) at (4.5,3) {$\epsilon_{3}$};
+    \node[hidden] (ex3) at (4.5,-1) {$\zeta_{3}$};
+    
     \path (x1) edge (x2);
     \path (x2) edge (x3);
     \path (x1) edge (y2);
@@ -1178,53 +1310,171 @@ Source: Lanfear et al. (2020)  Broken windows, informal social control, and crim
     \path (ex3) edge (x3);
     \path (ey2) edge (y2);
     \path (ey3) edge (y3);
-    \path (x1) edge [bend right=45, arrows = <->] (y1);
-    \path (ex2) edge [bend left=45, arrows = <->] (ey2);
-    \path (ex3) edge [bend left=45, arrows = <->] (ey3);
+  
+    \node[align=center] (title2) at (8,3.5) {(b) "True" contemporaneous model};
+    \node (y1b) at (6,2) {$Y_1$};
+    \node (y2b) at (8,2) {$Y_2$};
+    \node (y3b) at (10,2) {$Y_3$};
+    \node (x1b) at (6,0) {$X_1$};
+    \node (x2b) at (8,0) {$X_2$};
+    \node (x3b) at (10,0) {$X_3$};
+    
+    \node[hidden] (ey1b) at (6.5,3) {$\epsilon_{1}$};
+    \node[hidden] (ey2b) at (8.5,3) {$\epsilon_{2}$};
+    \node[hidden] (ex2b) at (8.5,-1) {$\zeta_{2}$};
+    \node[hidden] (ey3b) at (10.5,3) {$\epsilon_{3}$};
+    \node[hidden] (ex3b) at (10.5,-1) {$\zeta_{3}$};
+    
+    
+    \path (x1b) edge (x2b);
+    \path (x2b) edge (x3b);
+    
+    \path (x1b) edge (y1b);
+    \path (x2b) edge (y2b);
+    \path (x3b) edge (y3b);
+    
+    \path (y1b) edge (y2b);
+    \path (y2b) edge (y3b);
+    \path (y1b) edge (x2b);
+    \path (y2b) edge (x3b);
+
+    \path (ex2b) edge (x2b);
+    \path (ex3b) edge (x3b);
+    \path (ey1b) edge (y1b);
+    \path (ey2b) edge (y2b);
+    \path (ey3b) edge (y3b);
   }
 ```
 
+This is just a violated independence assumption
 
-:::
-
-::::
-
-
-
-
-## Low inter-temporal variation
+## You'll see it everywhere now
 
 &nbsp;
 
-* $Var(Y_2|Y_1) \rightarrow 0$ as $\rho(Y_1,Y_2) \rightarrow 1$
-* Error and bias become proportionally larger components
-* Common with short observation times and stable constructs
-
-
-## Example paper
+![](img/wickes-hipp.png)
 
 &nbsp;
 
-Sometimes a near-perfect multicollinearity problem:
-
-![](img/steenbeek-hipp.png)
-
-:::{.aside}
-Source: Lanfear et al. (2020)
+::: {.center}
+*Be **very** suspicious of unexpected reversed signs*
 :::
+
+::: {.aside}
+
+Source: Lanfear et al. (2020)  Broken windows, informal social control, and crime: Assessing causality in empirical studies
+
+:::
+
+## Robust estimators
+
+```{tikz, echo = FALSE, cache = TRUE, fig.ext = "svg", engine.opts=list(dvisvgm.opts= "--no-fonts") }
+\usetikzlibrary{positioning}
+\definecolor{black}{HTML}{000000}
+\tikzset{
+    > = stealth,
+    every node/.append style = {
+        draw = none
+    },
+    every path/.append style = {
+        arrows = ->,
+        draw = black,
+        fill = none
+    },
+    hidden/.style = {
+        draw = black,
+        shape = circle,
+        inner sep = 1pt
+    }
+}
+\tikz{
+    \node[align=center] (title1) at (2,3.5) {(a) Lag with covariance};
+    \node (y1) at (0,2) {$Y_1$};
+    \node (y2) at (2,2) {$Y_2$};
+    \node (y3) at (4,2) {$Y_3$};
+    \node (x1) at (0,0) {$X_1$};
+    \node (x2) at (2,0) {$X_2$};
+    \node (x3) at (4,0) {$X_3$};
+    
+    \node[hidden] (ey2) at (2.5,3) {$\epsilon_{2}$};
+    \node[hidden] (ex2) at (2.5,-1) {$\zeta_{2}$};
+    \node[hidden] (ey3) at (4.5,3) {$\epsilon_{3}$};
+    \node[hidden] (ex3) at (4.5,-1) {$\zeta_{3}$};
+    
+    \path (x1) edge (x2);
+    \path (x2) edge (x3);
+    \path (x1) edge (y2);
+    \path (x2) edge (y3);
+    \path (y1) edge (y2);
+    \path (y2) edge (y3);
+    \path (y1) edge (x2);
+    \path (y2) edge (x3);
+    \path (x1) edge [gray, thin, bend left=60, arrows = <->] (y1);
+    \path (ex2) edge [gray, thin, bend right=30, arrows = <->] (ey2);
+    \path (ex3) edge [gray, thin, bend right=30, arrows = <->] (ey3);
+    \path (ex2) edge (x2);
+    \path (ex3) edge (x3);
+    \path (ey2) edge (y2);
+    \path (ey3) edge (y3);
+  
+    \node[align=center] (title2) at (8,3.5) {(b) Contemporaneous effects};
+    \node (y1b) at (6,2) {$Y_1$};
+    \node (y2b) at (8,2) {$Y_2$};
+    \node (y3b) at (10,2) {$Y_3$};
+    \node (x1b) at (6,0) {$X_1$};
+    \node (x2b) at (8,0) {$X_2$};
+    \node (x3b) at (10,0) {$X_3$};
+    
+    \node[hidden] (ey1b) at (6.5,3) {$\epsilon_{1}$};
+    \node[hidden] (ey2b) at (8.5,3) {$\epsilon_{2}$};
+    \node[hidden] (ex2b) at (8.5,-1) {$\zeta_{2}$};
+    \node[hidden] (ey3b) at (10.5,3) {$\epsilon_{3}$};
+    \node[hidden] (ex3b) at (10.5,-1) {$\zeta_{3}$};
+    
+    
+    \path (x1b) edge (x2b);
+    \path (x2b) edge (x3b);
+    
+    \path (x1b) edge (y1b);
+    \path (x1b) edge (y2b);
+    \path (x2b) edge (y2b);
+    \path (x2b) edge (y3b);
+    \path (x3b) edge (y3b);
+    
+    \path (y1b) edge (y2b);
+    \path (y2b) edge (y3b);
+    \path (y1b) edge (x2b);
+    \path (y2b) edge (x3b);
+
+    \path (ex2b) edge (x2b);
+    \path (ex3b) edge (x3b);
+    \path (ey1b) edge (y1b);
+    \path (ey2b) edge (y2b);
+    \path (ey3b) edge (y3b);
+  }
+```
+
+Proper solution depends on what assumptions about temporal order **theory** allows us to make
 
 ## Solutions
 
-* Address during data collection
-   * Oversample for change
-   * Look for shocks
-* Hybrid Mundlak model
-* Consider different time lags or units of analysis
-* Error can be dealt with using measurement models
-  * Should do this anyway as outcomes are regressors, so measurement error attenuates estimates
-* Give up, go get a pint
 
-## Just shy of surrender: Non-recursive models
+* There is no "true" causal timing to discover, there is only a target estimand
+   * Motivate estimand with theory
+
+. . .
+
+* Use robust estimators:
+   * Contemporaneous covariance when "fast" effects are ambiguous
+   * Contemporaneous effects when they're not
+
+. . .
+
+* If an ambiguous contemporaneous path is of substantive interest:
+   * Consider collecting better data, *you fool*
+   * As a last resort, non-recursive models
+
+## Here be dragons
 
 &nbsp;
 
@@ -1247,6 +1497,7 @@ Source: Lanfear et al. (2020)
     }
 }
 \tikz{
+    \node[align=center] (title1) at (1,3.5) {(a) Lag instruments};
     \node (x1) at (0,2) {$X_1$};
     \node (x2) at (2,2) {$X_2$};
     \node (y1) at (0,0) {$Y_1$};
@@ -1260,50 +1511,183 @@ Source: Lanfear et al. (2020)
     \path (x2.-105) edge[auto=right,->] (y2.105);
     \path (y2.75) edge[auto=right,->] (x2.-75);
     \path (ex2) edge [bend left=45, arrows = <->] (ey2);
+    
+    \node[align=center] (title2) at (6,3.5) {(b) Other instruments};
+    \node (x1b) at (5,2) {$X_1$};
+    \node (x2b) at (7,2) {$X_2$};
+    \node (y1b) at (5,0) {$Y_1$};
+    \node (y2b) at (7,0) {$Y_2$};
+    \node (W) at (6.5,3) {$W_2$};
+    \node (Z) at (6.5,-1) {$Z_2$};
+    \node (ex2b) at (7.5,3) {$e_{x2}$};
+    \node (ey2b) at (7.5,-1) {$e_{y2}$};
+    \path (x1b) edge (x2b);
+    \path (y1b) edge (y2b);
+    \path (x1b) edge (y2b);
+    \path (y1b) edge (x2b);
+    \path (W) edge (x2b);
+    \path (Z) edge (y2b);
+    \path (ex2b) edge (x2b);
+    \path (ey2b) edge (y2b);
+    \path (x2b.-105) edge[auto=right,->] (y2b.105);
+    \path (y2b.75) edge[auto=right,->] (x2b.-75);
+    \path (ex2b) edge [bend left=45, arrows = <->] (ey2b);
   }
 ```
 
 IV assumptions are **strong** but a pint may make them believable
 
+## Low inter-temporal variation {.dark-slide}
 
-## Takeaways {.dark-slide}
+## Low inter-temporal variation
+
+&nbsp;
+
+Cross-lagged panel models are models of *change* over time
+
+. . .
+
+&nbsp;
+
+If things don't change, *you have nothing to explain*
+
+&nbsp;
+
+::: {.incremental}
+
+* $Var(Y_2|Y_1) \rightarrow 0$ as $\rho(Y_1,Y_2) \rightarrow 1$
+* Unstable and imprecise estimates
+* *Measurement error* becomes a proportionally larger component
+* Common with *short observation periods* and *stable traits*
+
+:::
+
+## Example paper
+
+&nbsp;
+
+Sometimes a near-perfect multicollinearity problem:
+
+![](img/steenbeek-hipp.png)
+
+&nbsp;
+
+What remains to explain when prior values account for 90% of the variation in present values?
+
+:::{.aside}
+
+Source: Lanfear et al. (2020)  Broken windows, informal social control, and crime: Assessing causality in empirical studies
+
+:::
+
+## Solutions
 
 :::: {.columns}
-::: {.column width="62%"}
+::: {.column width="48%"}
 
-**Our advice**
+**Data collection**
 
-* Separate theory problems from estimation problems
-   * Theory comes first
-   * Then estimand
-   * Then estimator
-* Consider whether data can answer your question
-* Default to robust estimators and be explicit with assumptions
+* Collect data over a longer period, *you fool*
+* Embed an experiment or look for exogenous shocks
+   * *A more plausible IV estimator*
+* Oversample for change
+   * *Change may be rapid for subgroups*
 
 :::
 
 ::: {.column width="4%"}
+
 &nbsp;
+
 :::
 
-::: {.column width="34%"}
+::: {.fragment .column width="48%"}
 
-![](img/estimand-estimator-estimate.png)
+**Estimation**
 
-
-
-
+* Consider a cross-sectional analysis
+* Use longer lags
+* Different aggregations
+   * E.g., smaller *spatial* units
+* Measurement models for error
+   * *Do this anyway because outcomes are regressors and random measurement error attenuates estimates*
 
 :::
 ::::
+
+::: {.fragment .center}
+
+*Or perhaps give up and go get a pint*
+
+:::
+
+# Giving up
+
+## Consider doing something else
+
+. . .
+
+> researchers should think carefully about whether the data they have are suitable for answering their questions to begin with... panel survey data are better equipped to test **slow and lasting effects** proposed by developmental and life course theories... than **rapid or transient processes** from cognitive and interactional theories... (22)
+
+Consider experiments, momentary assessments, etc.
+
+. . .
+
+
+> Panel data with narrow observation intervals are sometimes also poorly suited for testing slow processes; high intertemporal correlations and proportions of variance explained may be signals there is insufficient change over time to produce precise
+estimates.
+
+. . .
+
+::: {.center}
+
+*Just because you have panel data doesn't mean you should use it*
+
+:::
+
+## Again, but louder {.dark-slide}
+
+::::: {.columns}
+
+:::: {.column width="68%"}
+
+::: {.incremental}
+
+* Separate theory from estimation
+   * **Theory comes first**
+      * *a strong estimation strategy cannot make up for a theoretical deficit*
+   * Then a relevant **estimand**
+   * Then an appropriate **estimator** *last*
+* Panel survey data are not appropriate for answering every question
+* Default to robust estimators and be clear about assumptions
+   * Contemporaneous covariances or effects
+   * ML-SEM and RI-CLPM
+
+:::
+
+::::
+
+:::: {.column width="2%"}
+
+&nbsp;
+
+::::
+
+:::: {.column width="30%"}
+
+![](img/estimand-estimator-estimate.png)
+
+::::
+
+:::::
 
 :::{.aside}
 Image source: Richard McElreath
 :::
 
-## Feedback and Questions
+## Feedback and Questions {background-image="img/paisley.png" background-position="bottom" background-size="contain"}
 
-
+&nbsp;
 
 Contact:
 
