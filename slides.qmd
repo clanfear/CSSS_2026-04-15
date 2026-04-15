@@ -38,7 +38,7 @@ showtext_auto()
 
 ## What is this?
 
-We were invited to write an article on **Cross-Lagged Panel Models** (CLPM) for the *Journal of Developmental and Life Course Criminology*
+We were invited to write an article on **Cross-Lagged Panel Models** (CLPMs) for the *Journal of Developmental and Life Course Criminology*
 
 &nbsp;
 
@@ -81,6 +81,10 @@ CLPMs are commonly used to examine **reciprocality** in *developmental* and *lif
     \path (y) edge [bend left=45, arrows = ->] (x);
   }
 ```
+
+&nbsp;
+ 
+Classic criminological concerns
 
 ## What is this?
 
@@ -417,9 +421,11 @@ You should default to **robust estimators**
 
 &nbsp;
 
-* Units of time should be clearly stated
-* No bidirectional paths
-* Include latent or missing variables
+Units of time should be clearly stated
+
+No bidirectional paths
+
+Include latent or missing variables
 
 
 ## SEM for estimation
@@ -710,7 +716,9 @@ A feasible estimand: *The expected reduction in number of self-reported offenses
 
 Observations rarely correspond perfectly to a theoretical timing of interest
 
-Time is continuous anyway; missing data are *infinite*^[Discrete data work in continuous time differential equations though]
+We discretize for convenience: time is continuous!^[Discrete data work in continuous time differential equations though]
+
+In discrete time, missing data are *infinite!*
 
 ## Composite period variables
 
@@ -1078,7 +1086,7 @@ Unfortunately:
   }
 ```
 
-Confounded by a time-stable trait of individuals
+Confounded by an unmeasured time-stable trait of individuals
 
 ## Solution 1: Allison et al.'s (2017) ML-SEM
 
@@ -1686,6 +1694,10 @@ Image source: Richard McElreath
 :::
 
 ## Feedback and Questions {background-image="img/paisley.png" background-position="bottom" background-size="contain"}
+
+&nbsp;
+
+I am pleased to share the draft!
 
 &nbsp;
 
